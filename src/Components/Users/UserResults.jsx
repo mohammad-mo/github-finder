@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import Loading from "../Layout/Loading"
 
 const UserResults = () => 
 {
@@ -13,10 +14,10 @@ const UserResults = () =>
     const fetchUsers = async () =>
     {
         const response = await fetch(`${process.env.REACT_APP_GITHUB_URL}/users`, {
-            headers: 
-            {
-                Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`
-            }
+            // headers: 
+            // {
+            //     Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`
+            // }
         })
 
         const data = await response.json()
@@ -36,7 +37,7 @@ const UserResults = () =>
     }
     else
     {
-        return <h3>Loading...</h3>
+        return <Loading />
     }
 }
  

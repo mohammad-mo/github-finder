@@ -15,7 +15,7 @@ const UuserSearch = () =>
     {
         e.preventDefault()
 
-        if (text === '')
+        if (!text || /^\s*$/.test(text))
         {
             setAlert('Please enter something', 'error')
         }

@@ -3,8 +3,8 @@ import GithubReducer from "./GithubReducer"
 
 const GithubContext = createContext()
 
-const GUTHUB_URL = process.env.REACT_APP_GITHUB_URL
-const GUTHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN
+const GITHUB_URL = process.env.REACT_APP_GITHUB_URL
+const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN
 
 export const GithubProvider = ({ children }) =>
 {
@@ -12,6 +12,7 @@ export const GithubProvider = ({ children }) =>
     {
         users: [],
         user: {},
+        repos: [],
         loading: false
     }
 
@@ -45,7 +46,7 @@ export const GithubProvider = ({ children }) =>
             q: text
         })
 
-        const response = await fetch(`${GUTHUB_URL}/search/users?${params}`, {
+        const response = await fetch(`${GITHUB_URL}/search/users?${params}`, {
             // headers: 
             // {
             //     Authorization: `token ${GUTHUB_TOKEN}`
@@ -65,10 +66,10 @@ export const GithubProvider = ({ children }) =>
     {
         setLoading()
 
-        const response = await fetch(`${GUTHUB_URL}/users/${login}`, {
+        const response = await fetch(`${GITHUB_URL}/users/${login}`, {
             // headers: 
             // {
-            //     Authorization: `token ${GUTHUB_TOKEN}`
+            //     Authorization: `token ${GITHUB_TOKEN}`
             // }
         })
 
@@ -87,6 +88,32 @@ export const GithubProvider = ({ children }) =>
         }
     }
 
+    // Get user repositories
+    const getUserRepos = async (login) => {
+        setLoading()
+    
+        const params = new URLSearchParams({
+          sort: 'created',
+          per_page: 10,
+        })
+    
+        const response = await fetch(
+          `${GITHUB_URL}/users/${login}/repos?${params}`,
+          {
+            // headers: {
+            //   Authorization: `token ${GITHUB_TOKEN}`,
+            // },
+          }
+        )
+    
+        const data = await response.json()
+    
+        dispatch({
+          type: 'GET_REPOS',
+          payload: data
+        })
+      }
+
     // Clear users from state
     const clearUsers = () => dispatch({type: 'CLEAR_USERS'})
 
@@ -97,9 +124,11 @@ export const GithubProvider = ({ children }) =>
         users: state.users,
         loading: state.loading,
         user: state.user,
+        repos: state.repos,
         searchUsers,
         clearUsers,
-        getUser
+        getUser,
+        getUserRepos
     }}>
         {children}
     </GithubContext.Provider>

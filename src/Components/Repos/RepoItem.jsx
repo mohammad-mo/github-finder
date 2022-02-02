@@ -14,7 +14,7 @@ const RepoItem = ({ repo }) =>
     } = repo
 
     return (
-        <div className="mb-2 rounded-md card bg-gray-800 hover:bg-gray-900">
+        <div className="card mb-2 rounded-md bg-neutral shadow-lg hover:bg-neutral-focus">
             <div className="card-body">
                 <h3 className="mb-2 text-xl font-semibold">
                     <a href={html_url} target='_blank' rel="noreferrer">

@@ -36,13 +36,13 @@ const UserSearch = () =>
             <div className="relative">
               <input
                 type="text"
-                className="w-full pr-40 bg-gray-200 input input-lg text-black"
+                className="w-full pr-40 bg-gray-200 input input-md text-black"
                 placeholder="Search"
                 autoFocus
                 value={text}
                 onChange={handleChange}
               />
-              <button className="absolute top-0 right-0 rounded-l-none w-36 btn btn-lg">
+              <button className="absolute top-0 right-0 rounded-l-none w-36 btn btn-md">
                   Go
               </button>
             </div>
@@ -50,7 +50,7 @@ const UserSearch = () =>
         </div>
             {users.length > 0 && (
                 <div>
-                    <button onClick={() => dispatch({type: 'CLEAR_USERS'})} className="btn btn-ghost btn-lg">Clear</button>
+                    <button onClick={() => dispatch({type: 'CLEAR_USERS'})} className="btn btn-ghost btn-md">Clear</button>
                 </div>
             )}
       </div>

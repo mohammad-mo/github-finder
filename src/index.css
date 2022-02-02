@@ -2,17 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Custom scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(134, 134, 134, 0.5);
+  border-radius: 10px;
+  border: transparent;
+}
+
 .custom-card-image .card.image-full::before {
   border-radius: 0.5rem;
   opacity: 0.45;
 }
 
+/* Loading */
 .outer,
 .middle,
 .inner {
   border: 3px solid transparent;
-  border-top-color: #2A2E37;
-  border-right-color: #2A2E37;
+  border-top-color: #D5CCFF;
+  border-right-color: #D5CCFF;
   border-radius: 50%;
   position: absolute;
   top: 50%;

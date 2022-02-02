@@ -16,7 +16,6 @@ export const searchUsers = async (text) =>
     })
 
     const response = await github.get(`/search/users?${params}`)
-    console.log(response);
     return response.data.items
 }
 
@@ -26,9 +25,6 @@ export const getUserAndRepos = async (login) => {
       github.get(`/users/${login}`),
       github.get(`/users/${login}/repos`)
   ])
-
-  console.log(user);
-  console.log(repos);
 
   return { user: user.data, repos: repos.data }
 }

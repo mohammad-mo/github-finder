@@ -14,7 +14,7 @@ const User = () =>
 
     useEffect(async () =>
     {
-        dispatch({type: 'SETLOADING'})
+        dispatch({type: 'SET_LOADING'})
         const getUserData = async () =>
         {
           const userData = await getUserAndRepos(params.login)

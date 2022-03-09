@@ -12,6 +12,7 @@ const User = () =>
 
     const params = useParams()
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(async () =>
     {
         dispatch({type: 'SET_LOADING'})
@@ -21,7 +22,7 @@ const User = () =>
           dispatch({ type: 'GET_USER_AND_REPOS', payload: userData })
         }
 
-        getUserData()
+        await getUserData()
     }, [dispatch, params.login])
 
     const {

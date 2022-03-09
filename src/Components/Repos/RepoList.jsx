@@ -5,7 +5,7 @@ const RepoList = ({ repos }) =>
 {
     return (
         <div className="rounded-lg shadow-lg card bg-base-100">
-            <div className="card-body p-1 sm:p-2">
+            <div className="card-body p-0 sm:p-2">
                 <h2 className="text-2xl sm:text-3xl my-4 font-bold card-title">
                     Latest Respositories
                 </h2>

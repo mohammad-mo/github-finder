@@ -2,6 +2,7 @@ import { useState, useContext } from "react"
 import GithubContext from "../../Context/Github/GithubContext"
 import AlertContext from "../../Context/Alert/AlertContext"
 import { searchUsers } from "../../Context/Github/GithubActions"
+import Alert from "../Layout/Alert"
 
 const UserSearch = () => 
 {
@@ -32,6 +33,7 @@ const UserSearch = () =>
     return (
       <div className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8">
         <div>
+          <Alert />
           <form onSubmit={handleSubmit} className="form-control">
             <div className="relative">
               <input
@@ -42,7 +44,7 @@ const UserSearch = () =>
                 value={text}
                 onChange={handleChange}
               />
-              <button className="absolute top-0 right-0 rounded-l-none w-36 btn btn-md">
+              <button className="absolute top-0 right-0 rounded-l-none w-24 sm:w-32 md:w-36 btn btn-md">
                   Go
               </button>
             </div>

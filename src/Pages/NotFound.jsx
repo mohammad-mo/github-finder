@@ -7,11 +7,11 @@ const NotFound = () =>
         <div className="hero">
             <div className="text-center hero-content">
                 <div className="max-w-lg">
-                    <h1 className="text-8xl font-bold mb-8">
+                    <h1 className="text-6xl sm:text-8xl font-bold mb-8">
                         Oops!
                     </h1>
-                    <p className="text-5xl mb-8">Page not found!</p>
-                    <Link to={{ pathname: '/' }} className="btn btn-primary btn-lg">
+                    <p className="text-4xl sm:text-5xl mb-8">Page not found!</p>
+                    <Link to={{ pathname: '/' }} className="btn btn-primary btn-md sm:btn-lg">
                         <FaHome className="mr-2" />
                         Back To Home
                     </Link>
